@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%% EDIT THIS FILE IN A BETTER APPLICATION THAN RSTUDIO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,twoside,10pt]{article}
+% Duplex: oneside / twoside
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[USenglish]{babel} %francais, polish, spanish, ...
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+
+\usepackage{tabularx} %For setting table widths
+\usepackage{float}
+%\setcounter{topnumber}{2} %allow 2 floats (tables or figures) per top of page
+%\setcounter{totalnumber}{3}
+%\renewcommand{\floatpagefraction}{0.5} % % of pages that can have float at top
+%\renewcommand{\topfraction}{0.85} % % of pages that can have float at top
+
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%For loading graphic files
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+
+
+%% Line Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{setspace}
+%\singlespacing        %% 1-spacing (default)
+%\onehalfspacing       %% 1,5-spacing
+%\doublespacing        %% 2-spacing
+
+%% Other Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=1in]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pagestyle{empty} %No headings for the first pages.
+
+\title{Sample for Integrating R Output with Latex}
+\author{Jim Marquardson}
+%\date{} %%If commented, the current date is used.
+\maketitle
+
+\pagestyle{plain} %Now display headings: headings / fancy / ...
+
+\section{Introduction}\label{Introduction}
+
+Notes for automating R and Latex
+
+On Windows, install Miktex and ghostscript.
+(Might need r devtools because you need 'make')
+
+If you have PDFs you need to crop, add this to your PATH (may be in a dif folder, need Ghostscript):
+  C:\textbackslash{}Program Files (x86)\textbackslash{}gs\textbackslash{}gs9.04\textbackslash{}bin
+
+Makefile
+Edit the first three lines
+
+TEXFILE= paper \# this is the name of your main .tex file, without the extension
+
+RDIR= . \# R working directory. A period indicates the tex files are in the same folder as the R files
+
+FIGDIR= ./figures \#where the graphs(PDFs) are found by tex (you must be consisten in your R files)
+
+
+
+\section{In Latex}\label{InLatex}
+
+Use \\input\{petDancing\} to include an external text file.
+
+
+\begin{figure}[htb]
+  \centering
+		\includegraphics{../figures/scatter.pdf}
+	\caption{Sample Scatter Plot}
+	\label{fig:scatter}
+\end{figure}
+
+Figure ~\ref{fig:scatter} shows a scatterplot for animal weight and height. The table ~\ref{tab:petColor} shows the counts for pets and color. The p value is \input{p}\unskip.
+
+\input{petColor}
+
+\section{References}\label{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY AND OTHER LISTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% The Bibliography
+%% ==> You need a file 'literature.bib' for this.
+%% ==> You need to run BibTeX for this (Project | Properties... | Uses BibTeX)
+%\addcontentsline{toc}{chapter}{Bibliography} %'Bibliography' into toc
+%\nocite{*} %Even non-cited BibTeX-Entries will be shown.
+%\bibliographystyle{alpha} %Style of Bibliography: plain / apalike / amsalpha / ...
+%\bibliography{literature} %You need a file 'literature.bib' for this.
+
+This is a poorly formatted hack of a references section.
+
+1. Breiman, L. (2001), Random Forests, Machine Learning 45(1), 5-32.
+
+2. Breiman L., Friedman J. H., Olshen R. A., and Stone, C. J. (1984) Classification and Regression Trees. Wadsworth.
+
+3. Chang, Chih-Chung and Lin, Chih-Jen. LIBSVM: a library for Support Vector Machines. http://www.csie.ntu.edu.tw/~cjlin/papers/libsvm.ps.gz
+
+\end{document}
