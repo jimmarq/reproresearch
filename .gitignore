@@ -1,3 +1,19 @@
+# Created as part of the make process
+*.Rout
+*.pdfcrop
+
+# Workspace specific R files
+.RData
+.Rhistory
+
+# Tex stuff left over after
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.tcp
+*.tps
+
 #################
 ## Eclipse
 #################
@@ -161,3 +177,4 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+.Rproj.user
