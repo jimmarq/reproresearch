@@ -3,8 +3,8 @@
 *.pdfcrop
 
 # Workspace specific R files
-.RData
-.Rhistory
+*.RData
+*.Rhistory
 
 # Tex stuff left over after
 *.aux
