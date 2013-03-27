@@ -52,29 +52,11 @@
 
 \section{Introduction}\label{Introduction}
 
-Notes for automating R and Latex
-
-On Windows, install Miktex and ghostscript.
-(Might need r devtools because you need 'make')
-
-If you have PDFs you need to crop, add this to your PATH (may be in a dif folder, need Ghostscript):
-  C:\textbackslash{}Program Files (x86)\textbackslash{}gs\textbackslash{}gs9.04\textbackslash{}bin
-
-Makefile
-Edit the first three lines
-
-TEXFILE= paper \# this is the name of your main .tex file, without the extension
-
-RDIR= . \# R working directory. A period indicates the tex files are in the same folder as the R files
-
-FIGDIR= ./figures \#where the graphs(PDFs) are found by tex (you must be consisten in your R files)
-
-
+This file was generated using R, RStudio, Miktex, Ghostscript, and make.
 
 \section{In Latex}\label{InLatex}
 
-Use \\input\{petDancing\} to include an external text file.
-
+Use \textbackslash{}input\{petDancing\} to include an external tex file.
 
 \begin{figure}[htb]
   \centering
