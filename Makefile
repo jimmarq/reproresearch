@@ -26,6 +26,8 @@ CROP_FILES:= $(PDFFIGS:.pdf=.pdfcrop)
 
 all: $(TEXDIR)/$(TEXFILE).pdf $(OUT_FILES) $(CROP_FILES)
 
+# R file dependencies are listed here.
+# The order goes load.R > clean.R > functions.R > the rest of the .R files
 $(RDIR)/clean.Rout: $(RDIR)/clean.R $(RDIR)/load.Rout 
 	R CMD BATCH $< 
 
