@@ -13,6 +13,9 @@
 *.log
 *.tcp
 *.tps
+# Tex bibliography stuff
+*.bbl
+*.blg
 
 #################
 ## Eclipse
